@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>LinkedIn Test</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<!-- app css -->
+	<link rel="stylesheet" href="css/main.css">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body ng-app="linkedInApp" ng-controller="MainCtrl as main" ng-csp class="ng-cloak">
+	<div class="jumbotron" ng-show="me.found">
+		<div class="container">
+			<div class="row-fluid">
+				<div class="col-md-12 text-center">
+					<img ng-src="{{ me.pictureUrl }}" id="profile-pic" class=" img-thumbnail">
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="col-md-12 text-center">
+					<h1>{{ me.firstName + " " + me.lastName }}</h1>
+					<p class="lead">{{ me.headline }}</p>
+					<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+						<ul class="list-inline">
+							<li>
+								<span class="location"><span class="glyphicon glyphicon-map-marker"></span> {{ me.location.name }}</span>
+							</li>
+							<li>
+								<span class="twitter-username" ng-if="me.twitterAccounts"><a ng-href="http://twitter.com/{{me.twitterAccounts.values[0].providerAccountName}}">@{{ me.twitterAccounts.values[0].providerAccountName }}</a></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" ng-show="linkedInReady">
+		<div class="row-fluid" id="login-area" ng-hide="me.found">
+			<div class="col-md-12 text-center">
+				<script type="IN/Login"></script>
+			</div>
+		</div>
+		<div class="row-fluid" id="profile-area" ng-show="me.found">
+			<!--div class="row-fluid">
+				<div class="col-md-12 text-center">
+					<p ng-bind-html="me.summary | nl2br"></p>
+				</div>
+			</div-->
+			<div class="row-fluid">
+				<div class="col-md-12">
+					<h2 class="page-header">Experience</h2>
+					<div class="panel-group accordion" id="accordion-experiences">
+						<div class="panel panel-default" ng-class="{ active: $index == 0 }" ng-repeat="position in me.positions.values">
+							<div class="panel-heading" data-toggle="collapse" data-parent="#accordion-experiences" data-target="#position{{ $index }}">
+								<h4 class="panel-title">{{ position.company.name }}</h4>
+							</div>
+							<div id="position{{ $index }}" ng-class="{ in: $index == 0 }" class="panel-collapse collapse">
+								<div class="panel-body">
+									{{ position.summary }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-sanitize.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+	<!-- main app file -->
+	<script src="js/main.js"></script>
+	<script type="{{li.t}}" ng-src="{{trustSrc(li.s)}}">
+		api_key: 77ff85e61ta242
+		onLoad: displayLinkedInLogin
+		authorize: true
+	</script>
+</body>
+</html>

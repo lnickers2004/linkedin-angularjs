@@ -1,0 +1,35 @@
+/*body {
+	background-color: #00585F;
+	padding-top: 40px;
+}
+
+h2 {
+	color: #FFFCC4;
+}
+
+p.lead {
+	color: #C7C49B;
+} */
+/*#login-area {
+	display: none;
+	text-align: center;
+}
+
+#profile {
+	display: none;
+}*/
+
+
+
+body {
+	/*padding-top: 40px;*/
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak,
+[ng\:hide], [ng-hide], [data-ng-hide], [x-ng-hide], .ng-hide, .x-ng-hide {
+  display: none !important;
+}
+
+.accordion.panel-group .panel-heading {
+	cursor: pointer;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "linked-in_test",
+  "version": "0.0.1",
+  "authors": [
+    "Zain Syed <zeddotes@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "*",
+    "angularjs": "*"
+  }
+}
