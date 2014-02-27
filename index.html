@@ -4,12 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>LinkedIn Test</title>
+	<title>LinkedIn Integration with AngularJS</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<!-- app css -->
 	<link rel="stylesheet" href="css/main.css">
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -48,11 +46,6 @@
 			</div>
 		</div>
 		<div class="row-fluid" id="profile-area" ng-show="me.found">
-			<!--div class="row-fluid">
-				<div class="col-md-12 text-center">
-					<p ng-bind-html="me.summary | nl2br"></p>
-				</div>
-			</div-->
 			<div class="row-fluid">
 				<div class="col-md-12">
 					<h2 class="page-header">Experience</h2>
@@ -72,18 +65,14 @@
 			</div>
 		</div>
 	</div>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="bower_components/jquery/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-sanitize.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+	<!-- config -->
+	<script src="config.js"></script>
 	<!-- main app file -->
 	<script src="js/main.js"></script>
-	<script type="{{li.t}}" ng-src="{{trustSrc(li.s)}}">
-		api_key: 77ff85e61ta242
-		onLoad: displayLinkedInLogin
-		authorize: true
-	</script>
 </body>
 </html>
